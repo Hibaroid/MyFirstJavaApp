@@ -192,7 +192,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private void readrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_readrowActionPerformed
         // TODO add your handling code here:
         CurrentBrief.login = loginreq.getText();
-        String requesttodb = "SELECT * FROM APP.BRIEFS WHERE LOGIN = '" + CurrentBrief.login + "'";
+        String requesttodb = "SELECT * FROM APP.USERS WHERE LOGIN = '" + CurrentBrief.login + "'";
         //чтение
         try 
         {   
@@ -232,7 +232,7 @@ public class NewJFrame extends javax.swing.JFrame {
         try 
         {
             CurrentBrief.login = loginin.getText();
-            String requesttodb = "SELECT * FROM APP.BRIEFS WHERE LOGIN = '" + CurrentBrief.login + "'";
+            String requesttodb = "SELECT * FROM APP.USERS WHERE LOGIN = '" + CurrentBrief.login + "'";
             CurrentBrief.login = " ";
             
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
@@ -254,7 +254,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 CurrentBrief.fio = fioin.getText();
                 if((!CurrentBrief.login.isEmpty()) && (!CurrentBrief.fio.isEmpty()))
                         {
-                            PreparedStatement sqlStatement = conn.prepareStatement("INSERT INTO APP.BRIEFS VALUES (?, ?, ?)");
+                            PreparedStatement sqlStatement = conn.prepareStatement("INSERT INTO APP.USERS VALUES (?, ?, ?)");
                             sqlStatement.setInt(1, CurrentBrief.id);
                             sqlStatement.setString(2, CurrentBrief.login);
                             sqlStatement.setString(3, CurrentBrief.fio);
